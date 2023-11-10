@@ -1,9 +1,10 @@
 ## from the end ##
+print("## From the end ##")
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
       ## setting bound: getting the end char
       index = len(s)-1
-      while(index >=0 and s[index] == " "):
+      while(index >=0 and s[index] == " "): # while not at the end of the array, and the char is a space, decrement --1. Basically: "find the first non space char, from the end of the array".
         index-=1
 
       maxLength = 0
@@ -13,28 +14,49 @@ class Solution:
         index-=1
       return maxLength
 
-## from the begining ##
-# class Solution:
-#     def compare(self, pre_ptr, post_ptr):
-#       if pre_ptr > post_ptr:
-#         temp = post_ptr
-#         post_ptr = pre_ptr
-#         pre_ptr = temp
-#       return pre_ptr, post_ptr
+test_cases = [
+  "  H ",
+  "H",
+  "Hello",
+  "Hello World",
+  "   fly me   to   the moon  ",
+  "luffy is still joyboy"
+]
 
-#     def lengthOfLastWord(self, s: str) -> int:
-#         size = len(s)
-#         pre_ptr = 0
-#         post_ptr = 0
-#         for i in range(size):
-#           if s[i] == " " or i == size-1:
-#             if s[i-1] != " ":
-#               pre_ptr = i
-#               pre_ptr, post_ptr = self.compare(pre_ptr, post_ptr)
-#             if i == size-1:
-#               post_ptr = i
-#         count = 0
-#         for ea in s[pre_ptr:post_ptr+1]:
-#           if ea != " ":
-#             count+=1
-#         return count
+s = Solution()
+for ea in test_cases:
+  print(f"Len of last word = {s.lengthOfLastWord(ea)}")
+
+## from the beginning ##
+print("## From the beginning ##")
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+      ## setting bound: getting the first non space char
+      index = 0
+      ptr = index
+      while(index < len(s)):
+        # create a pointer to keep track of the 1st character in a word
+        if s[index] != " " and s[index-1] == " ":
+          #update the pointer
+          ptr = index
+        index+=1
+
+      maxLength = 0
+      ## counting the chars
+      while(ptr < len(s) and s[ptr] != " "):
+        maxLength+=1
+        ptr+=1
+      return maxLength
+
+test_cases = [
+  "  H ",
+  "H",
+  "Hello",
+  "Hello World",
+  "   fly me   to   the moon  ",
+  "luffy is still joyboy"
+]
+
+s = Solution()
+for ea in test_cases:
+  print(f"Len of last word = {s.lengthOfLastWord(ea)}")
