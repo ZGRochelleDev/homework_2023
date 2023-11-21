@@ -21,14 +21,16 @@ class Solution:
 
         length, width = False, False
 
-        x = max(rec1[0], rec2[0])
-        y = min(rec1[2], rec2[2])
-        if x < y:
+        ## comparing the x-axes of both rectangles ##
+        x1 = max(rec1[0], rec2[0]) # bottom-left x-axes
+        x2 = min(rec1[2], rec2[2]) # top-right x-axes
+        if x1 < x2:
             length = True
-
-        p = max(rec1[1], rec2[1])
-        q = min(rec1[3], rec2[3])
-        if p < q:
+        
+        ## comparing the y-axes of both rectangles ##
+        y1 = max(rec1[1], rec2[1]) # bottom-left x-axes
+        y2 = min(rec1[3], rec2[3]) # top-right x-axes
+        if y1 < y2:
             width = True
 
         return length and width
@@ -53,7 +55,8 @@ s = Solution()
 # print("## rec 2 ##")
 # s.get_coords(rec2)
 
-
+# whether the points are bottom-left or top-right matters to the outcome
+# for example, you could not treat a bottom-left corner as a bottom-right.
 
 ans = s.isRectangleOverlap(rec1, rec2)
 
