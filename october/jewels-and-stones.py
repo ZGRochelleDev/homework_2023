@@ -30,7 +30,7 @@
 ## Method 3 ##
 class Solution:
     def numJewelsInStones(self, jewels, stones) -> int:
-      
+
       mapping_dict = {}
       # using a dictionary for mapping instead of an array.
       # ord() returns an int representing a Unicode character.
