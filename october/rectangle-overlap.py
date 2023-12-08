@@ -4,60 +4,44 @@
 # Two rectangles overlap if the area of their intersection is positive.
 # To be clear, two rectangles that only touch at the corner or edges do not overlap.
 
-# take a look at this example: https://leetcode.com/problems/rectangle-overlap/solutions/849096/solution-with-example-diagrams/
-# class Solution:
-#     def isRectangleOverlap(self, r1: List[int], r2: List[int]) -> bool:
-#         x = sorted([(r1[0], "r1"), (r1[2], "r1"), (r2[0], "r2"), (r2[2], "r2")])
-#         y = sorted([(r1[1], "r1"), (r1[3], "r1"), (r2[1], "r2"), (r2[3], "r2")])
-        
-#         if x[0][1] == x[1][1] or x[2][1] == x[3][1] or y[0][1] == y[1][1] or y[2][1] == y[3][1] or x[2][0] == x[1][0] or y[2][0] == y[1][0]:
-#             return False
-#         return True
+# whether the points are bottom-left or top-right matters for the solution.
+# for example, you could not treat a bottom-left corner as a bottom-right.
 
-
-# https://leetcode.com/problems/rectangle-overlap/solutions/639586/ac-simply-readable-python-one-line/
 class Solution:
     def isRectangleOverlap(self, rec1, rec2):
 
         length, width = False, False
 
-        ## comparing the x-axes of both rectangles ##
-        x1 = max(rec1[0], rec2[0]) # bottom-left x-axes
-        x2 = min(rec1[2], rec2[2]) # top-right x-axes
+        # (x1, y1) = bottom-left
+        # (x2, y2) = top-right
+
+        # compare the bounds of
+        # then left to right
+        # bottom to top
+        
+        # left to right
+        # left must be less than right
+        # think about it's position on a graph
+        x1 = max(rec1[0], rec2[0]) # left
+        x2 = min(rec1[2], rec2[2]) # right
+
         if x1 < x2:
             length = True
-        
-        ## comparing the y-axes of both rectangles ##
-        y1 = max(rec1[1], rec2[1]) # bottom-left x-axes
-        y2 = min(rec1[3], rec2[3]) # top-right x-axes
+
+        # bottom to top
+        # bottom must be less than top
+        y1 = max(rec1[1], rec2[1]) # bottom
+        y2 = min(rec1[3], rec2[3]) # top
+
         if y1 < y2:
             width = True
 
         return length and width
-
-
-#[x1, y1, x2, y2]
-# rec1 = [0,0,2,2]
-# rec2 = [1,1,3,3]
-#Output: true
-
-# rec1 = [0,0,1,1]
-# rec2 = [1,0,2,1]
-#Output: false
-
-rec1 = [7,8,13,15]
-rec2 = [10,8,12,20]
-#Output: true
-
+        
+rec1 = [0,0,2,2]
+rec2 = [1,1,3,3]
 s = Solution()
-# print("## rec 1 ##")
-# s.get_coords(rec1)
-# print("## rec 2 ##")
-# s.get_coords(rec2)
-
-# whether the points are bottom-left or top-right matters to the outcome
-# for example, you could not treat a bottom-left corner as a bottom-right.
-
 ans = s.isRectangleOverlap(rec1, rec2)
+print(ans)
 
-print(f"Answer = {ans}")
+

@@ -67,3 +67,16 @@ s = Solution()
 ans = s.numJewelsInStones(jewels, stones)
 
 print(f"Answer = {ans}")
+
+
+## simpler, but less efficient method ##
+# class Solution:
+#     def numJewelsInStones(self, jewels, stones):
+#         count = 0
+#         for stone in stones:
+#             for jewel in jewels:
+#                 if jewel == stone:
+#                     count+=1
+#         return count
+
+

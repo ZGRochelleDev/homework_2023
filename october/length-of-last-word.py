@@ -14,6 +14,22 @@ class Solution:
         index-=1
       return maxLength
 
+## easier to read solution ##
+# class Solution:
+#     def lengthOfLastWord(self, s: str) -> int:
+
+#         last_letter = ""
+#         size = len(s)
+#         while last_letter.isalnum() != True and size > 0:
+#             size-=1
+#             last_letter = s[size]
+
+#         count = 0
+#         while s[size].isalnum() == True and size >= 0:
+#             size-=1
+#             count+=1
+#         return count
+
 test_cases = [
   "  H ",
   "H",
