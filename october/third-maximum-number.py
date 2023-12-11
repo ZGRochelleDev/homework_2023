@@ -22,20 +22,23 @@ class Solution:
         return t
 
 # class Solution:
-#     def swap(self, f, s, t):
-#       if f < s:
-#         tmp = f
-#         f = s
-#         s = tmp
-#       if f < t:
-#         tmp = f
-#         f = t
-#         t = tmp
-#       if s < t:
-#         tmp = s
-#         s = t
-#         t = tmp
-#       return f,s,t
+    def swap(self, f, s, t): # 1 4 5
+      # make this a nested if
+      # only need to check the 3rd largest
+      # only update if n>
+      if f < s:
+        tmp = f
+        f = s
+        s = tmp
+      if f < t:
+        tmp = f
+        f = t
+        t = tmp
+      if s < t:
+        tmp = s
+        s = t
+        t = tmp
+      return f,s,t
 
 #     def thirdMax(self, nums):
 

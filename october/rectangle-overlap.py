@@ -18,7 +18,7 @@ class Solution:
         # compare the bounds of
         # then left to right
         # bottom to top
-        
+
         # left to right
         # left must be less than right
         # think about it's position on a graph
