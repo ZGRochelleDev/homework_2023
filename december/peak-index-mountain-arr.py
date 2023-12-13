@@ -1,19 +1,23 @@
-class NumArray:
-    nums_list = []
-    arr_sum = []
+#https://leetcode.com/problems/peak-index-in-a-mountain-array/submissions/
+class Solution:
+    def peakIndexInMountainArray(self, arr):
+        # solve in O(log(n)) time
 
-    def __init__(self, nums: List[int]):
-        self.nums_list = nums
-        ## add preprocessing here
-        ## to call in sumRange
+        ## attempt 1 ##
+        # return arr.index(max(arr))
 
-    def sumRange(self, left: int, right: int) -> int:
-      
-      sum = 0
-      for pos in range(left, right+1):
-          sum = sum + self.nums_list[pos]
-      return sum
+        ## attempt 2 ##
+        # find i, where arr[i-1] < arr[i] > arr[i+1]
+        i = 1
+        while i < len(arr)-1:
+            if arr[i-1] < arr[i] and arr[i] > arr[i+1]:
+                return i
+            else:
+                i+=1
 
-# Your NumArray object will be instantiated and called as such:
-# obj = NumArray(nums)
-# param_1 = obj.sumRange(left,right)
+arr = [3,4,5,1]
+#arr = [0,2,1,0]
+#arr = [0,1,0]
+s = Solution()
+ans = s.peakIndexInMountainArray(arr)
+print(f"peakIndexInMountainArray -> {ans}")
