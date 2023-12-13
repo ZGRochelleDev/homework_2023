@@ -3,8 +3,12 @@ class Solution:
     def peakIndexInMountainArray(self, arr):
         # solve in O(log(n)) time
 
-        ## attempt 1 ##
-        # return arr.index(max(arr))
+        ## attempt 1 O(n) ##
+        # max_ptr = 0
+        # for cur_ptr, num in enumerate(arr):
+        #     if num > arr[max_ptr]:
+        #         max_ptr = cur_ptr
+        # return max_ptr
 
         ## attempt 2 ##
         # find i, where arr[i-1] < arr[i] > arr[i+1]
