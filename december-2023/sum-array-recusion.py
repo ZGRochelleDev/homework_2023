@@ -9,7 +9,7 @@ class Solution:
         else:
             return self.sum_array(array, i+1) + array[i]
 
-arr = [2,3,4,1,5,6,8] #10
+arr = [2,3,4,1,5,6,8]
 print(f"Correct answer -> {sum(arr)}")
 s = Solution()
 ans = s.sum_array(arr, 0)
