@@ -2,6 +2,7 @@
 # https://www.geeksforgeeks.org/python-program-for-binary-search/
 
 def binary_search(arr, low, high, target):
+    # base case
     if low <= high:
         mid = (low + high) // 2 # floor division, rounds down
         # if the element is present at the middle
