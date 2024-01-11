@@ -2,9 +2,6 @@
 # that consist only of characters 'A' and 'B'
 # class Solution:
 
-#     def permute(self, size):
-#         return
-
 # size = 2
 # s = Solution()
 # ans = s.permute(size)
@@ -27,33 +24,53 @@
 # BBB
 
 ## iterative ##
-arr = ["A","B"]
-s1, s2 = "", ""
 
-for x in range(2):
-    s1 = arr[x]
-    for y in range(2):
-        s2 = arr[y]
-        print(s1+s2)
+def permute(arr):
+    for x in range(len(arr)):
+        return arr[x]
+
+def permute_iterative(size):
+    arr = ["A","B"]
+    s1, s2 = "", ""
+
+    result = ""
+    for each in range(size):
+        result = result + permute(arr)
+
+    print(result)
+
+    # for x in range(len(arr)):
+    #     s1 = arr[x]
+    #     for y in range(len(arr)):
+    #         s2 = arr[y]
+    #         for z in range(len(arr)):
+    #             s3 = arr[z]
+    #             print(s1+s2+s3)
+
+
+
+    permute_arr = ["A" for x in range(size)] # list comprehension
+    x = len(permute_arr)-1
+    while x >= 0:
+        permute_arr[x] = "B"
+        x-=1
+        print(permute_arr)
 
 size = 3
-permute_arr = ["A" for x in range(size)] # list comprehension
-x = len(permute_arr)-1
-while x >= 0:
-    permute_arr[x] = "B"
-    x-=1
-    print(permute_arr)
+print("iterative")
+permute_iterative(size)
 
+
+## recursive ##
 def foo(build_array, letter, size):
     original_list = [build_array for x in range(size)]
-    print(original_list)
+    print(f"original_list: {original_list}")
     ptr = 0
     while ptr < len(original_list):
-
-
         print(original_list)
         ptr+=1
         original_list = [build_array for x in range(size)]
+print("recursive")
 size = 3
 foo("A", "B", size)
 foo("B", "A", size)
