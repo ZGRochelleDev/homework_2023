@@ -21,6 +21,10 @@ class Solution:
         return substrings_count
 
     ## second attempt - traversing middle out
+    # write code for odd
+    # write code for even
+    # see simlarities -> redundancies
+    # write a consolidated version
     def countSubstrings_1(self, s):
         substrings_count = 0
         str_size = len(s)
@@ -28,7 +32,8 @@ class Solution:
             substrings_count+=1
             iter = 1
             while i-iter >= 0 and i+iter < str_size:
-                if s[i] == s[i+iter]:
+                if s[i] == s[i+iter]: # manam  i=2
+                    # while iter =0 -> (i-iter>=0) (i + iter < len)
                     substrings_count+=1
                 elif s[i] == s[i-iter]:
                     substrings_count+=1
@@ -48,7 +53,6 @@ class Solution:
                     b += 1
                 substrings_count += (b-a)//2
         return substrings_count
-
 
 
 #str = "aa"

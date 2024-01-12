@@ -24,7 +24,6 @@
 # BBB
 
 ## iterative ##
-
 def permute(arr):
     for x in range(len(arr)):
         return arr[x]
@@ -33,21 +32,18 @@ def permute_iterative(size):
     arr = ["A","B"]
     s1, s2 = "", ""
 
-    result = ""
-    for each in range(size):
-        result = result + permute(arr)
+    # result = ""
+    # for each in range(size):
+    #     result = result + permute(arr)
+    # print(result)
 
-    print(result)
-
-    # for x in range(len(arr)):
-    #     s1 = arr[x]
-    #     for y in range(len(arr)):
-    #         s2 = arr[y]
-    #         for z in range(len(arr)):
-    #             s3 = arr[z]
-    #             print(s1+s2+s3)
-
-
+    for x in range(len(arr)):
+        s1 = arr[x]
+        for y in range(len(arr)):
+            s2 = arr[y]
+            for z in range(len(arr)):
+                s3 = arr[z]
+                print(s1+s2+s3)
 
     permute_arr = ["A" for x in range(size)] # list comprehension
     x = len(permute_arr)-1
