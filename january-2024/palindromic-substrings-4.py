@@ -1,6 +1,5 @@
 #https://leetcode.com/problems/palindromic-substrings/description/
 
-
 class Solution:
 
     # def countSubstrings_2(self, s):
