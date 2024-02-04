@@ -1,3 +1,10 @@
+import sys
+import os
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname('C:/Users/zogr2/Documents/GitHub/homework_2023/modules'))
+
+from modules.linked_list import *
+
 ## iterative
 # class Solution(object):
 #     def isPalindrome(self, head):
@@ -47,3 +54,18 @@ class Solution(object):
             # So, right is used to check whether the previously done checks are also True or not.
 
         return recursion(head)
+
+
+#l1 = ListNode(1, ListNode(2, ListNode(4)))
+LLC = LinkedListClass()
+
+
+test_case = [1,2,3,2,1]
+#test_case = [1,2,3]
+linked_list_1 = LLC.create_linked_list(test_case)
+LLC.print_linked_list(linked_list_1)
+
+s = Solution()
+res = s.isPalindrome(linked_list_1)
+
+print(f"Answer -> {res}")
