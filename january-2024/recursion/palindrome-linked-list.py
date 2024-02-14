@@ -2,7 +2,6 @@ import sys
 import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname('C:/Users/zogr2/Documents/GitHub/homework_2023/modules'))
-
 from modules.linked_list import *
 
 ## iterative
